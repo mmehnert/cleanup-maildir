@@ -213,6 +213,8 @@ class MaildirMessage(rfc822.Message):
                                 email.Header.decode_header(s)))
         except(LookupError):
             return s
+        except(ValueError):
+            return s
 
     def getSubjectHash(self):
         """get the message's subject in a "normalized" form
